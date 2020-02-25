@@ -1,0 +1,50 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="blackcvApp.listReason.home.title">List Reasons</span>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="listReasons?.length === 0">
+        <span jhiTranslate="blackcvApp.listReason.home.notFound">No listReasons found</span>
+    </div>
+    <div class="table-responsive" *ngIf="listReasons?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.listReason.document">Document</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.listReason.reason">Reason</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.listReason.createdBy">Created By</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.listReason.createdDate">Created Date</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.listReason.lastModifiedBy">Last Modified By</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.listReason.lastModifiedDate">Last Modified Date</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.listReason.status">Status</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let listReason of listReasons ;trackBy: trackId">
+                <td><a [routerLink]="['/list-reason', listReason.id, 'view' ]">{{listReason.id}}</a></td>
+                <td>{{listReason.document}}</td>
+                <td>{{listReason.reason}}</td>
+                <td>{{listReason.createdBy}}</td>
+                <td>{{listReason.createdDate | date:'medium'}}</td>
+                <td>{{listReason.lastModifiedBy}}</td>
+                <td>{{listReason.lastModifiedDate | date:'medium'}}</td>
+                <td>{{listReason.status}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/list-reason', listReason.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

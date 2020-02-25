@@ -1,0 +1,28 @@
+{
+  "blackcvApp": {
+    "listReason": {
+      "home": {
+        "title": "List Reasons",
+        "createLabel": "Create a new List Reason",
+        "createOrEditLabel": "Create or edit a List Reason",
+        "notFound": "No List Reasons found"
+      },
+      "created": "A new List Reason is created with identifier {{ param }}",
+      "updated": "A List Reason is updated with identifier {{ param }}",
+      "deleted": "A List Reason is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete List Reason {{ id }}?"
+      },
+      "detail": {
+        "title": "List Reason"
+      },
+      "document": "Document",
+      "reason": "Reason",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By",
+      "lastModifiedDate": "Last Modified Date",
+      "status": "Status"
+    }
+  }
+}

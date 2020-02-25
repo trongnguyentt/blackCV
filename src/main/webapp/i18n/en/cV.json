@@ -1,0 +1,32 @@
+{
+  "blackcvApp": {
+    "cV": {
+      "home": {
+        "title": "CVS",
+        "createLabel": "Create a new CV",
+        "createOrEditLabel": "Create or edit a CV",
+        "notFound": "No CVS found"
+      },
+      "created": "A new CV is created with identifier {{ param }}",
+      "updated": "A CV is updated with identifier {{ param }}",
+      "deleted": "A CV is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete CV {{ id }}?"
+      },
+      "detail": {
+        "title": "CV"
+      },
+      "iD": "I D",
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "job": "Job",
+      "avatar": "Avatar",
+      "fileUploadCV": "File Upload CV",
+      "createdBy": "Created By",
+      "createdDate": "Created Date",
+      "lastModifiedBy": "Last Modified By"
+    }
+  }
+}

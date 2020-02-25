@@ -1,0 +1,56 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="blackcvApp.company.home.title">Companies</span>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="companies?.length === 0">
+        <span jhiTranslate="blackcvApp.company.home.notFound">No companies found</span>
+    </div>
+    <div class="table-responsive" *ngIf="companies?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.company.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.company.businessAreas">Business Areas</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.company.phone">Phone</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.company.email">Email</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.company.address">Address</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.company.createdBy">Created By</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.company.createdDate">Created Date</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.company.lastModifiedBy">Last Modified By</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.company.lastModifiedDate">Last Modified Date</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.company.status">Status</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let company of companies ;trackBy: trackId">
+                <td><a [routerLink]="['/company', company.id, 'view' ]">{{company.id}}</a></td>
+                <td>{{company.name}}</td>
+                <td>{{company.businessAreas}}</td>
+                <td>{{company.phone}}</td>
+                <td>{{company.email}}</td>
+                <td>{{company.address}}</td>
+                <td>{{company.createdBy}}</td>
+                <td>{{company.createdDate | date:'medium'}}</td>
+                <td>{{company.lastModifiedBy}}</td>
+                <td>{{company.lastModifiedDate | date:'medium'}}</td>
+                <td>{{company.status}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/company', company.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

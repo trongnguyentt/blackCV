@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="listReason">
+            <h2><span jhiTranslate="blackcvApp.listReason.detail.title">List Reason</span> {{listReason.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="blackcvApp.listReason.document">Document</span></dt>
+                <dd>
+                    <span>{{listReason.document}}</span>
+                </dd>
+                <dt><span jhiTranslate="blackcvApp.listReason.reason">Reason</span></dt>
+                <dd>
+                    <span>{{listReason.reason}}</span>
+                </dd>
+                <dt><span jhiTranslate="blackcvApp.listReason.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{listReason.createdBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="blackcvApp.listReason.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{listReason.createdDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="blackcvApp.listReason.lastModifiedBy">Last Modified By</span></dt>
+                <dd>
+                    <span>{{listReason.lastModifiedBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="blackcvApp.listReason.lastModifiedDate">Last Modified Date</span></dt>
+                <dd>
+                    <span>{{listReason.lastModifiedDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="blackcvApp.listReason.status">Status</span></dt>
+                <dd>
+                    <span>{{listReason.status}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+        </div>
+    </div>
+</div>

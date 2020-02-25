@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="blackcvApp.cV.home.title">CVS</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cv" [routerLink]="['/cv/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="blackcvApp.cV.home.createLabel">
+            Create a new CV
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="cVS?.length === 0">
+        <span jhiTranslate="blackcvApp.cV.home.notFound">No cVS found</span>
+    </div>
+    <div class="table-responsive" *ngIf="cVS?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.cV.iD">I D</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.cV.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.cV.phone">Phone</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.cV.email">Email</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.cV.address">Address</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.cV.job">Job</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.cV.avatar">Avatar</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.cV.fileUploadCV">File Upload CV</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.cV.createdBy">Created By</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.cV.createdDate">Created Date</span></th>
+            <th scope="col" ><span jhiTranslate="blackcvApp.cV.lastModifiedBy">Last Modified By</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cV of cVS ;trackBy: trackId">
+                <td><a [routerLink]="['/cv', cV.id, 'view' ]">{{cV.id}}</a></td>
+                <td>{{cV.iD}}</td>
+                <td>{{cV.name}}</td>
+                <td>{{cV.phone}}</td>
+                <td>{{cV.email}}</td>
+                <td>{{cV.address}}</td>
+                <td>{{cV.job}}</td>
+                <td>{{cV.avatar}}</td>
+                <td>{{cV.fileUploadCV}}</td>
+                <td>{{cV.createdBy}}</td>
+                <td>{{cV.createdDate | date:'medium'}}</td>
+                <td>{{cV.lastModifiedBy}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/cv', cV.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/cv', cV.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(cV)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
